@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Lightsaber in pure css</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class="lightsaber lightsaber--yoda">
+      <label for="yoda"></label>
+      <input id="yoda" type="checkbox" checked></input>
+      <div class="plasma"></div>
+    </div>
+    <div class="lightsaber lightsaber--vader">
+      <label for="vader"></label>
+      <input id="vader" type="checkbox" checked></input>
+      <div class="plasma"></div>
+    </div>
+    <div class="lightsaber lightsaber--windu">
+      <label for="windu"></label>
+      <input id="windu" type="checkbox" checked></input>
+      <div class="plasma"></div>
+    </div>
+  </body>
+
+  <script>
+  // grab the checkbox
+  const lightsabers = document.querySelectorAll('.lightsaber input[type="checkbox"]');
+  lightsabers.forEach(lightsaber => lightsaber.addEventListener('change', playWhoosh));
+
+  function playWhoosh(e) {
+    // first check to see if this checkbox is on or off
+    const isOn = e.target.checked;
+    if (isOn) {
+      const whooshSound = document.createElement('audio');
+      whooshSound.src = 'https://scotch.io/audio/lightsaber.wav';
+      whooshSound.play();
+    }
+  }
+  </script>
+</html>
